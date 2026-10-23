@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instituto Alan Costa</title>
+  <link rel="icon" type="image/png" href="logoescola.png">
+  <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+
+  <!-- ============ 1) SITE INICIAL (apresentação da escola) ============ -->
+  <div id="paginaEscolha">
+    <div class="site">
+
+      <div class="cabecalho">
+        <header class="topo">
+
+          <div class="topoEsquerda">
+            <button type="button" id="btnMenu" class="btnMenu" aria-label="Abrir menu" aria-expanded="false"
+              aria-controls="menuLateral">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+
+            <nav class="topoAcessos">
+              <button type="button" id="btnSouAluno" class="btnAcesso btnAcessoAluno">Acesso Aluno</button>
+              <button type="button" id="btnSouProfessor" class="btnAcesso">Acesso Professor</button>
+            </nav>
+          </div>
+
+          <div class="topoMarca">
+            <img src="logoescola.png" alt="Logo do Instituto Alan Costa" class="topoLogo">
+            <div>
+              <strong>Instituto Alan Costa</strong>
+              <span>Educar · Formar · Transformar</span>
+            </div>
+          </div>
+
+        </header>
+      </div>
+
+      <!-- menu lateral (abre pelo botão de três traços) -->
+      <div id="menuFundo" class="menuFundo"></div>
+
+      <aside id="menuLateral" class="menuLateral" aria-label="Menu do site" aria-hidden="true">
+        <div class="menuTopo">
+          <strong>Menu</strong>
+          <button type="button" id="btnFecharMenu" class="btnFecharMenu" aria-label="Fechar menu">&times;</button>
+        </div>
+
+        <nav class="menuLista">
+          <a href="#" class="itemMenu ativo" data-aba="inicio"><span class="itemIcone">🏠</span>Início</a>
+          <a href="#" class="itemMenu" data-aba="matricula"><span class="itemIcone">📝</span>Matrícula</a>
+          <a href="#" class="itemMenu" data-aba="esportes"><span class="itemIcone">⚽</span>Modalidades esportivas</a>
+          <a href="#" class="itemMenu" data-aba="ensino"><span class="itemIcone">📚</span>Matérias e ensino</a>
+        </nav>
+
+        <div class="menuRodape">Educar · Formar · Transformar</div>
+      </aside>
+      <!-- ---------- ABA: INÍCIO ---------- -->
+      <section class="aba ativa" id="aba-inicio">
+
+        <div class="hero">
+          <h1>Conhecimento, disciplina e <em>futuro</em>.</h1>
+          <p class="heroLead">O Instituto Alan Costa nasceu com um propósito simples: educar, formar e transformar.</p>
+
+          <div class="heroBotoes">
+            <a href="#" class="btnLink btnPrincipal" data-aba="matricula">Quero me matricular</a>
+            <a href="#" class="btnLink btnSecundario" data-aba="ensino">Conhecer o ensino</a>
+          </div>
+        </div>
+
+        <div class="secao estreita revelar">
+          <h2 class="tituloSecao">Quem somos</h2>
+
+          <div class="textoApresentacao">
+            <p>Fundado em 2024, o Instituto Alan Costa acredita que a boa educação vai além da sala de aula. Aqui, cada
+              aluno é acompanhado de perto, com ensino de qualidade, respeito e compromisso com o seu desenvolvimento.
+            </p>
+
+            <p>Nosso trabalho se apoia em três pilares: <strong>conhecimento</strong>, para despertar a curiosidade e o
+              gosto por aprender; <strong>disciplina</strong>, para construir responsabilidade e bons hábitos de estudo;
+              e <strong>futuro</strong>, para preparar cada estudante para as escolhas que virão depois da escola.</p>
+
+            <p class="lema">Educar · Formar · Transformar</p>
+          </div>
+        </div>
+
+        <div class="secao">
+          <h2 class="tituloSecao revelar">Conheça o Instituto</h2>
+
+          <div class="atalhos">
+            <a href="#" class="atalho revelar" data-aba="matricula">
+              <span class="atalhoIcone">📝</span>
+              <h3>Matrícula</h3>
+              <p>Onde fica a escola e quais documentos levar para matricular o aluno.</p>
+              <span class="atalhoMais">Saiba mais <span>→</span></span>
+            </a>
+
+            <a href="#" class="atalho revelar" data-aba="esportes">
+              <span class="atalhoIcone">⚽</span>
+              <h3>Modalidades esportivas</h3>
+              <p>Futsal, natação, atletismo, vôlei e ginástica para o aluno praticar.</p>
+              <span class="atalhoMais">Saiba mais <span>→</span></span>
+            </a>
+
+            <a href="#" class="atalho revelar" data-aba="ensino">
+              <span class="atalhoIcone">📚</span>
+              <h3>Matérias e ensino</h3>
+              <p>As disciplinas oferecidas e como funciona o nosso modo de ensinar.</p>
+              <span class="atalhoMais">Saiba mais <span>→</span></span>
+            </a>
+          </div>
+        </div>
+
+      </section>
+
+
+      <!-- ---------- ABA: MATRÍCULA ---------- -->
+      <section class="aba" id="aba-matricula">
+        <div class="secao">
+
+          <h2 class="tituloSecao">Matrículas</h2>
+          <p class="subtituloSecao">Venha fazer parte do Instituto Alan Costa. Veja onde nos encontrar e o que levar.
+          </p>
+
+          <div class="duasColunas">
+
+            <article class="painelInfo revelar">
+              <h3>Onde fica a escola</h3>
+
+              <div class="localizacao">
+                <span class="pin">📍</span>
+                <div>
+                  <strong>Bairro South Park</strong>
+                  <span>Colorado, EUA</span>
+                </div>
+              </div>
+              <p class="notaLocal">Localização fictícia: usamos o bairro da escola do desenho South Park.</p>
+
+              <h4>Atendimento</h4>
+              <ul class="listaInfo">
+                <li>🕖 Segunda a sexta, das 7h às 12h</li>
+                <li>📞 (00) 0000-0000</li>
+                <li>✉️ contato@exemplo.com.br</li>
+              </ul>
+            </article>
+
+            <article class="painelInfo revelar">
+              <h3>Documentos necessários</h3>
+
+              <h4>Do aluno</h4>
+              <ul class="listaCheck">
+                <li>Certidão de nascimento ou RG</li>
+                <li>CPF</li>
+                <li>Histórico escolar ou declaração de transferência</li>
+                <li>Cartão de vacinação atualizado</li>
+                <li>1 foto 3x4</li>
+              </ul>
+
+              <h4>Do responsável</h4>
+              <ul class="listaCheck">
+                <li>RG e CPF</li>
+                <li>Comprovante de residência</li>
+              </ul>
+            </article>
+
+          </div>
+
+          <h2 class="tituloSecao revelar" style="margin-top: 60px;">Como fazer a matrícula</h2>
+
+          <div class="passos">
+            <div class="passo revelar">
+              <span class="passoNum">1</span>
+              <h3>Reúna os documentos</h3>
+              <p>Separe os documentos da lista acima e confira se estão atualizados.</p>
+            </div>
+
+            <div class="passo revelar">
+              <span class="passoNum">2</span>
+              <h3>Vá até a secretaria</h3>
+              <p>Compareça no horário de atendimento, acompanhado do responsável.</p>
+            </div>
+
+            <div class="passo revelar">
+              <span class="passoNum">3</span>
+              <h3>Acesse o portal</h3>
+              <p>Com a matrícula feita, o aluno cadastra a senha e acompanha notas e frequência.</p>
+            </div>
+          </div>
+
+          <div class="faixaCta revelar">
+            <p>Matrícula feita? Cadastre sua senha e acesse o portal.</p>
+            <button type="button" class="btnAcesso" data-acesso="aluno">Acesso Aluno</button>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ---------- ABA: MODALIDADES ESPORTIVAS ---------- -->
+      <section class="aba" id="aba-esportes">
+        <div class="secao">
+
+          <h2 class="tituloSecao">Modalidades esportivas</h2>
+          <p class="subtituloSecao">O esporte também faz parte da formação. Veja o que o aluno pode praticar na escola.
+          </p>
+
+          <div class="gradeCards">
+            <article class="cartaoEsporte revelar">
+              <span class="esporteIcone">⚽</span>
+              <h3>Futsal</h3>
+              <p>Jogo rápido de quadra que desenvolve agilidade, estratégia e trabalho em equipe.</p>
+            </article>
+
+            <article class="cartaoEsporte revelar">
+              <span class="esporteIcone">🏊</span>
+              <h3>Natação</h3>
+              <p>Condicionamento completo, com foco em técnica, respiração e segurança na água.</p>
+            </article>
+
+            <article class="cartaoEsporte revelar">
+              <span class="esporteIcone">🏃</span>
+              <h3>Atletismo</h3>
+              <p>Corridas, saltos e arremessos para ganhar resistência e aprender a se superar.</p>
+            </article>
+
+            <article class="cartaoEsporte revelar">
+              <span class="esporteIcone">🏐</span>
+              <h3>Vôlei</h3>
+              <p>Esporte coletivo que une coordenação, comunicação e espírito de equipe.</p>
+            </article>
+
+            <article class="cartaoEsporte revelar">
+              <span class="esporteIcone">🤸</span>
+              <h3>Ginástica</h3>
+              <p>Trabalha flexibilidade, equilíbrio e força, com atenção à postura e ao controle do corpo.</p>
+            </article>
+          </div>
+
+          <p class="notaRodape revelar">Consulte a secretaria para saber horários e vagas de cada modalidade.</p>
+
+        </div>
+      </section>
+
+
+      <!-- ---------- ABA: MATÉRIAS E ENSINO ---------- -->
+      <section class="aba" id="aba-ensino">
+        <div class="secao">
+
+          <h2 class="tituloSecao">Matérias e modo de ensino</h2>
+          <p class="subtituloSecao">Uma formação completa, com acompanhamento de perto em cada etapa.</p>
+
+          <h3 class="subtitulo revelar">Nossas disciplinas</h3>
+
+          <div class="areas">
+            <article class="areaCard revelar">
+              <h3>Linguagens</h3>
+              <div class="chips">
+                <span class="chip">Português</span>
+                <span class="chip">Inglês</span>
+                <span class="chip">Educação Física</span>
+              </div>
+            </article>
+
+            <article class="areaCard revelar">
+              <h3>Exatas e Natureza</h3>
+              <div class="chips">
+                <span class="chip">Matemática</span>
+                <span class="chip">Física</span>
+                <span class="chip">Química</span>
+                <span class="chip">Biologia</span>
+              </div>
+            </article>
+
+            <article class="areaCard revelar">
+              <h3>Humanas</h3>
+              <div class="chips">
+                <span class="chip">História</span>
+                <span class="chip">Geografia</span>
+                <span class="chip">Sociologia</span>
+                <span class="chip">Filosofia</span>
+              </div>
+            </article>
+          </div>
+
+          <h3 class="subtitulo revelar">Como ensinamos</h3>
+
+          <div class="metodos">
+            <article class="metodo revelar">
+              <span class="metodoIcone">👥</span>
+              <h3>Acompanhamento próximo</h3>
+              <p>Aulas expositivas, atividades práticas e trabalhos em grupo, com atenção a cada aluno.</p>
+            </article>
+
+            <article class="metodo revelar">
+              <span class="metodoIcone">📅</span>
+              <h3>Avaliação por bimestre</h3>
+              <p>O ano tem 4 bimestres. Com média 6,0 ou mais, o aluno é aprovado.</p>
+            </article>
+
+            <article class="metodo revelar">
+              <span class="metodoIcone">🔁</span>
+              <h3>Recuperação e prova final</h3>
+              <p>Abaixo de 6,0, o aluno faz a prova final e é aprovado se a média final chegar a 5,0.</p>
+            </article>
+
+            <article class="metodo revelar">
+              <span class="metodoIcone">📈</span>
+              <h3>Frequência no portal</h3>
+              <p>É exigida frequência mínima de 75%, acompanhada pelo calendário de presença no portal.</p>
+            </article>
+          </div>
+
+        </div>
+      </section>
+
+      </main>
+
+      <footer class="rodape">
+        <p>&copy; Instituto Alan Costa &middot; Desde 2024 &middot; adeeniii</p>
+      </footer>
+
+    </div>
+  </div>
+
+
+  <!-- ============ 2) LOGIN / CADASTRO DO PROFESSOR ============ -->
+  <div id="paginaProfessor" style="display: none;">
+    <form id="formProfessor">
+      <h2 class="tituloForm">Acesso do Professor</h2>
+
+      <label for="profEmail">Email</label>
+      <input id="profEmail" type="email" required />
+
+      <label for="profSenha">Senha</label>
+      <input id="profSenha" type="password" required />
+
+      <div class="form-actions">
+        <button type="submit" id="btnProfEntrar">Entrar</button>
+        <button type="button" id="btnProfCadastrar">Cadastrar</button>
+      </div>
+      <button type="button" class="btnVoltar">Voltar</button>
+    </form>
+  </div>
+
+
+  <!-- ============ 3) LOGIN / CADASTRO DO ALUNO ============ -->
+  <div id="paginaFormulario" style="display: none;">
+    <form id="meuFormulario">
+      <h2 class="tituloForm">Acesso do Aluno</h2>
+
+      <label for="nome">Nome completo</label>
+      <input id="nome" type="text" required />
+
+      <label for="email">Email</label>
+      <input id="email" type="email" />
+
+      <label for="serie">Série</label>
+      <input id="serie" type="text" />
+
+      <label for="matricula">Matrícula</label>
+      <input id="matricula" type="text" />
+
+      <label for="senha">Senha</label>
+      <input id="senha" type="password" required />
+
+      <div class="form-actions">
+        <button type="submit" id="btnEntrar">Entrar</button>
+        <button type="button" id="btnTrocarSenhaFormulario">Trocar Senha</button>
+      </div>
+      <button type="button" class="btnVoltar">Voltar</button>
+    </form>
+  </div>
+
+
+  <!-- ============ 4) PORTAL (BOLETIM + DADOS + CALENDÁRIO) ============ -->
+  <div id="paginaPortal" style="display: none;">
+
+    <div class="caixa">
+
+      <h1>Portal Escolar: Instituto Alan Costa</h1>
+      <p id="infoPerfil"></p>
+      <p id="dataEmissao" class="soImpressao"></p>
+
+      <hr><br>
+
+      <div class="conteudoPortal">
+
+        <div class="areaBoletim">
+          <h3>Boletim Escolar</h3>
+
+          <div class="tabelaScroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Matéria</th>
+                  <th>1º Bimestre</th>
+                  <th>2º Bimestre</th>
+                  <th>3º Bimestre</th>
+                  <th>4º Bimestre</th>
+                  <th>Média</th>
+                  <th>Prova Final</th>
+                  <th>Situação</th>
+                </tr>
+              </thead>
+              <tbody id="boletim"></tbody>
+            </table>
+
+            <br><br>
+
+            <div class="acoesBoletim semImpressao">
+              <button type="button" id="btnImprimir">Imprimir boletim</button>
+              <button type="button" id="btnSair">Sair</button>
+            </div>
+
+          </div>
+
+          <div class="ladoLogo">
+
+            <div class="cartaoAluno">
+              <h3>Dados do aluno</h3>
+              <p><strong>Nome:</strong> <span id="alunoNome"></span></p>
+              <p><strong>Série:</strong> <span id="alunoSerie"></span></p>
+              <p><strong>E-mail:</strong> <span id="alunoEmail"></span></p>
+              <p><strong>Matrícula:</strong> <span id="alunoMatricula"></span></p>
+              <p><strong>Frequência:</strong> <span id="alunoFrequencia">sem registros</span></p>
+            </div>
+
+            <div class="calendarioPresenca">
+              <div class="calHeader">
+                <button type="button" id="calAnterior">&#8249;</button>
+                <h3 id="calTitulo"></h3>
+                <button type="button" id="calProximo">&#8250;</button>
+              </div>
+
+              <div class="calSemana">
+                <div>D</div>
+                <div>S</div>
+                <div>T</div>
+                <div>Q</div>
+                <div>Q</div>
+                <div>S</div>
+                <div>S</div>
+              </div>
+
+              <div class="calGrade" id="calGrade"></div>
+
+              <div class="calLegenda">
+                <span class="legPresente">Presente</span>
+                <span class="legFalta">Falta</span>
+              </div>
+
+              <div class="calDica">Clique no dia: presente → falta → limpar</div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <script src="portal.js"></script>
+    <script src="inicio.js"></script>
+</body>
+
+</html>
