@@ -1,9 +1,10 @@
 :root {
-    --cor: #1a7f37;
-    --cor-escura: #125c28;
-    --cor-clara: #e8f5ec;
-    --cor-borda: #b7dfc3;
-    --degrade: linear-gradient(180deg, #ffffff 0%, #ffffff 25%, #e8f5ec 60%, #a8d5b6 100%);
+    --cor: #0b2f55;          /* azul-marinho (botões, títulos, tabela) */
+    --cor-escura: #021f36;   /* azul do logo (hover) */
+    --cor-clara: #eef2f7;    /* fundo claro azulado */
+    --cor-borda: #c9d3e0;    /* bordas e linhas */
+    --dourado: #ba9042;      /* dourado do logo (detalhes) */
+    --degrade: linear-gradient(180deg, #ffffff 0%, #ffffff 25%, #eef2f7 60%, #c9d3e0 100%);
 }
 
 * {
@@ -651,7 +652,7 @@ td strong {
     background-color: var(--cor-escura);
     border-color: var(--cor-escura);
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(26, 127, 55, 0.3);
+        box-shadow: 0 8px 20px rgba(11, 47, 85, 0.3);
 }
 
 .btnSecundario {
@@ -1519,5 +1520,453 @@ body.menuAberto {
     td:first-child,
     tr:nth-child(even) td:first-child {
         background-color: transparent;
+    }
+}
+
+/* ===== PAINEL DO PROFESSOR (escolher e cadastrar aluno) ===== */
+.painelProfessor {
+    background: var(--cor-clara);
+    border: 1px solid var(--cor-borda);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin: 10px 0 14px;
+    text-align: left;
+}
+
+.painelLinha {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.painelCampo {
+    flex: 1;
+    min-width: 220px;
+}
+
+.painelCampo label {
+    display: block;
+}
+
+.painelProfessor select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fff;
+    font-size: 15px;
+}
+
+.painelProfessor .painelLinha button {
+    margin-bottom: 0;
+}
+
+.formNovoAluno {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--cor-borda);
+}
+
+.novoGrade {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 14px;
+}
+
+.novoGrade label {
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .novoGrade {
+        grid-template-columns: 1fr;
+    }
+}
+/* ===== DETALHES DOURADOS (cor do logo) ===== */
+.cabecalho {
+    border-bottom: 3px solid var(--dourado);
+}
+
+.tituloSecao::after {
+    background-color: var(--dourado);
+}
+
+.itemMenu.ativo {
+    border-left-color: var(--dourado);
+}
+
+/* ===== SITUAÇÃO COLORIDA NO BOLETIM ===== */
+td.situacao {
+    font-weight: bold;
+}
+
+td.sitAprovado {
+    background-color: #e3f4e8;
+    color: #1b6b35;
+}
+
+td.sitAtencao {
+    background-color: #fff4d6;
+    color: #8a5a00;
+}
+
+td.sitReprovado {
+    background-color: #fde6e6;
+    color: #b42323;
+}
+
+/* faz as cores aparecerem também no boletim impresso */
+@media print {
+    td.situacao {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
+
+/* ===== ACABAMENTO: FOCO E TRANSIÇÕES ===== */
+
+/* campos de formulário: anel na cor da escola ao clicar */
+input,
+select,
+textarea {
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--cor);
+    box-shadow: 0 0 0 3px rgba(11, 47, 85, 0.18);
+}
+
+/* quem navega pelo teclado (Tab) enxerga onde está */
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid var(--dourado);
+    outline-offset: 2px;
+}
+
+/* células de nota editáveis: ficam claras ao passar o mouse e destacadas ao editar */
+td[contenteditable] {
+    transition: background-color 0.2s;
+    cursor: text;
+}
+
+td[contenteditable]:hover {
+    background-color: var(--cor-clara);
+}
+
+td[contenteditable]:focus {
+    outline: 2px solid var(--cor);
+    outline-offset: -2px;
+    background-color: #ffffff;
+}
+
+/* destaque da linha do boletim sob o mouse (sem mexer na coluna Situação) */
+#boletim tr:hover td:not(.situacao):not([contenteditable]) {
+    background-color: #f3f6fa;
+}
+
+/* texto selecionado com o dourado do logo */
+::selection {
+    background-color: var(--dourado);
+    color: #ffffff;
+}
+
+/* ===== AVISOS (substituem o alert) ===== */
+#avisos {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: min(380px, calc(100vw - 40px));
+    pointer-events: none; /* só o aviso em si recebe clique */
+}
+
+.aviso {
+    pointer-events: auto;
+    background: #ffffff;
+    color: #222222;
+    padding: 14px 16px;
+    border-radius: 8px;
+    border-left: 5px solid var(--cor);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    font-size: 15px;
+    line-height: 1.4;
+    cursor: pointer;
+    animation: avisoEntra 0.25s ease;
+    transition: opacity 0.25s, transform 0.25s;
+}
+
+.aviso-ok { border-left-color: #2e9e4f; }
+.aviso-erro { border-left-color: #d93636; }
+.aviso-info { border-left-color: var(--dourado); }
+
+.aviso.saindo {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+@keyframes avisoEntra {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@media (max-width: 600px) {
+    #avisos {
+        top: 12px;
+        right: 12px;
+        left: 12px;
+        width: auto;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .aviso { animation: none; }
+}
+
+@media print {
+    #avisos { display: none; }
+}
+
+/* ===== TIPOGRAFIA: títulos serifados (combina com o logo) ===== */
+:root {
+    --fonte-titulo: 'Playfair Display', Georgia, 'Times New Roman', serif;
+}
+
+.hero h1,
+.tituloSecao,
+.subtitulo,
+.caixa h1,
+.tituloForm,
+.topoMarca strong,
+.menuTopo strong,
+.atalho h3,
+.painelInfo h3,
+.areaCard h3,
+.metodo h3,
+.passo h3,
+.cartaoEsporte h3,
+.areaBoletim h3,
+.cartaoAluno h3 {
+    font-family: var(--fonte-titulo);
+    font-weight: 700;
+}
+
+.hero h1 em {
+    font-style: italic;
+    font-weight: 600;
+}
+
+/* frases em maiúsculas espaçadas, como no logo */
+.textoApresentacao .lema,
+.topoMarca span,
+.menuRodape {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* ===== CARTÕES DE RESUMO DO PORTAL ===== */
+.resumo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 14px;
+    margin: -12px 0 28px;
+}
+
+.resumoCard {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 16px 18px;
+    background: #ffffff;
+    border: 1px solid var(--cor-borda);
+    border-top: 3px solid var(--dourado, #ba9042);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    text-align: left;
+}
+
+.resumoRotulo {
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #666666;
+}
+
+.resumoValor {
+    font-family: var(--fonte-titulo, Arial, sans-serif);
+    font-size: 34px;
+    line-height: 1.1;
+    color: var(--cor);
+}
+
+.resumoSub {
+    font-size: 13px;
+    color: #666666;
+}
+
+/* barra de frequência: o risco dourado marca o mínimo exigido */
+.resumoTrilha {
+    position: relative;
+    height: 8px;
+    background: #e5e9ef;
+    border-radius: 4px;
+}
+
+.resumoTrilha::after {
+    content: '';
+    position: absolute;
+    left: var(--minimo, 75%);
+    top: -3px;
+    bottom: -3px;
+    width: 2px;
+    background: var(--dourado, #ba9042);
+}
+
+.resumoBarra {
+    height: 100%;
+    width: 0;
+    background: #2e9e4f;
+    border-radius: 4px;
+    transition: width 0.4s ease;
+}
+
+.resumoBarra.baixa {
+    background: #d93636;
+}
+
+/* ===== CALENDÁRIO: ACABAMENTO ===== */
+.calendarioPresenca {
+    border-top: 4px solid var(--dourado, #ba9042);
+}
+
+.calHeader h3 {
+    font-family: var(--fonte-titulo, Arial, sans-serif);
+}
+
+/* só o professor marca presença: o dia "levanta" ao passar o mouse */
+.calGrade:not(.leitura) .calDia:not(.vazio):not(.bloqueado):hover {
+    transform: scale(1.08);
+}
+
+.calDia.presente,
+.calDia.falta {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+
+/* hoje: anel dourado */
+.calDia.hoje {
+    outline: 2px solid var(--dourado, #ba9042);
+    outline-offset: 2px;
+    font-weight: bold;
+}
+
+/* foco pelo teclado (Tab) */
+.calDia:focus-visible {
+    outline: 3px solid var(--cor);
+    outline-offset: 2px;
+}
+
+/* resumo do mês */
+.calResumoMes {
+    margin-top: 14px;
+    padding: 8px 10px;
+    background: var(--cor-clara);
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: bold;
+    color: var(--cor);
+    text-align: center;
+}
+
+/* legenda em bolinhas */
+.calLegenda span::before {
+    border-radius: 50%;
+}
+
+.legHoje::before {
+    background: transparent;
+    border: 2px solid var(--dourado, #ba9042);
+    box-sizing: border-box;
+}
+
+/* ===== LOGO E CABEÇALHO ===== */
+.topoLogo {
+    height: 60px;
+    width: auto;
+    border-radius: 0;
+}
+
+/* emblema grande na página inicial */
+.heroLogo {
+    display: block;
+    width: min(230px, 55vw);
+    height: auto;
+    margin: 0 auto 22px;
+    filter: drop-shadow(0 8px 16px rgba(2, 31, 54, 0.22));
+}
+
+/* cabeçalho do portal: emblema + título + etiqueta de acesso */
+.portalCabecalho {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+}
+
+.portalLogo {
+    height: 72px;
+    width: auto;
+}
+
+.portalTitulos {
+    flex: 1;
+    min-width: 200px;
+}
+
+.portalCabecalho h1 {
+    text-align: left;
+    margin: 0;
+    font-size: 30px;
+    line-height: 1.1;
+}
+
+.portalEscola {
+    display: block;
+    margin-top: 4px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #666666;
+}
+
+/* etiqueta "Acesso: Professor / Aluno" */
+#infoPerfil.chipPerfil {
+    margin: 0;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: var(--cor);
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+#infoPerfil.chipPerfil:empty {
+    display: none;
+}
+
+/* no boletim impresso a etiqueta é desnecessária */
+@media print {
+    #infoPerfil.chipPerfil {
+        display: none;
     }
 }
